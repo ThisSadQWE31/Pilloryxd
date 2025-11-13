@@ -1,3 +1,783 @@
-babasarki yaoti ulkeyi sikti
-yozgatlı gotik kızlar dm
-amina koyim bune
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local cxosadmingui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local PRAdminPanel = Instance.new("TextLabel")
+local Buttons = Instance.new("Frame")
+local Kick = Instance.new("TextButton")
+local Kill = Instance.new("TextButton")
+local Bring = Instance.new("TextButton")
+local Void = Instance.new("TextButton")
+local Ban = Instance.new("TextButton")
+local Music = Instance.new("TextButton")
+local Player = Instance.new("TextBox")
+local PlayerHeadshot = Instance.new("ImageLabel")
+local ID = Instance.new("TextBox")
+
+--Properties:
+
+cxosadmingui.Name = "cxo's admin gui"
+cxosadmingui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+cxosadmingui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+cxosadmingui.ResetOnSpawn = false
+
+Main.Name = "Main"
+Main.Parent = cxosadmingui
+Main.Active = true
+Main.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 2
+Main.ClipsDescendants = true
+Main.Position = UDim2.new(0.368017346, -29, 0.405720383, -15)
+Main.Size = UDim2.new(0, 395, 0, 205)
+
+PRAdminPanel.Name = "PR Admin Panel"
+PRAdminPanel.Parent = Main
+PRAdminPanel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+PRAdminPanel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PRAdminPanel.BorderSizePixel = 0
+PRAdminPanel.ClipsDescendants = true
+PRAdminPanel.Size = UDim2.new(0, 395, 0, 29)
+PRAdminPanel.Font = Enum.Font.SourceSansBold
+PRAdminPanel.Text = "PR - Admin Panel"
+PRAdminPanel.TextColor3 = Color3.fromRGB(255, 255, 255)
+PRAdminPanel.TextSize = 25.000
+PRAdminPanel.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+PRAdminPanel.TextWrapped = true
+
+Buttons.Name = "Buttons"
+Buttons.Parent = Main
+Buttons.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+Buttons.BackgroundTransparency = 1.000
+Buttons.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Buttons.BorderSizePixel = 3
+Buttons.ClipsDescendants = true
+Buttons.Position = UDim2.new(0, 0, 0.308536589, 0)
+Buttons.Size = UDim2.new(0, 395, 0, 141)
+
+Kick.Name = "Kick"
+Kick.Parent = Buttons
+Kick.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Kick.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Kick.BorderSizePixel = 0
+Kick.Position = UDim2.new(0.0180868022, 0, 0.300813079, 0)
+Kick.Size = UDim2.new(0, 108, 0, 30)
+Kick.Font = Enum.Font.SourceSansBold
+Kick.Text = "Kick"
+Kick.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kick.TextSize = 14.000
+Kick.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Kill.Name = "Kill"
+Kill.Parent = Buttons
+Kill.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Kill.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Kill.BorderSizePixel = 0
+Kill.Position = UDim2.new(0.35985896, 0, 0.300813079, 0)
+Kill.Size = UDim2.new(0, 108, 0, 30)
+Kill.Font = Enum.Font.SourceSansBold
+Kill.Text = "Kill"
+Kill.TextColor3 = Color3.fromRGB(255, 255, 255)
+Kill.TextSize = 14.000
+Kill.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Bring.Name = "Bring"
+Bring.Parent = Buttons
+Bring.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Bring.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Bring.BorderSizePixel = 0
+Bring.Position = UDim2.new(0.691504538, 0, 0.300813079, 0)
+Bring.Size = UDim2.new(0, 108, 0, 30)
+Bring.Font = Enum.Font.SourceSansBold
+Bring.Text = "Bring"
+Bring.TextColor3 = Color3.fromRGB(255, 255, 255)
+Bring.TextSize = 14.000
+Bring.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Void.Name = "Void"
+Void.Parent = Buttons
+Void.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Void.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Void.BorderSizePixel = 0
+Void.Position = UDim2.new(0.0180868022, 0, 0.61178869, 0)
+Void.Size = UDim2.new(0, 108, 0, 30)
+Void.Font = Enum.Font.SourceSansBold
+Void.Text = "Void"
+Void.TextColor3 = Color3.fromRGB(255, 255, 255)
+Void.TextSize = 14.000
+Void.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Ban.Name = "Ban"
+Ban.Parent = Buttons
+Ban.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Ban.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Ban.BorderSizePixel = 0
+Ban.Position = UDim2.new(0.35985896, 0, 0.61178869, 0)
+Ban.Size = UDim2.new(0, 108, 0, 30)
+Ban.Font = Enum.Font.SourceSansBold
+Ban.Text = "Ban"
+Ban.TextColor3 = Color3.fromRGB(255, 255, 255)
+Ban.TextSize = 14.000
+Ban.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Music.Name = "Music"
+Music.Parent = Buttons
+Music.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Music.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Music.BorderSizePixel = 0
+Music.Position = UDim2.new(0.691504538, 0, 0.61178869, 0)
+Music.Size = UDim2.new(0, 108, 0, 30)
+Music.Font = Enum.Font.SourceSansBold
+Music.Text = "Music"
+Music.TextColor3 = Color3.fromRGB(255, 255, 255)
+Music.TextSize = 14.000
+Music.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+Player.Name = "Player"
+Player.Parent = Main
+Player.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Player.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Player.BorderSizePixel = 0
+Player.ClipsDescendants = true
+Player.Position = UDim2.new(0.291139245, 0, 0.25, 0)
+Player.Size = UDim2.new(0, 158, 0, 28)
+Player.Font = Enum.Font.SourceSansBold
+Player.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+Player.PlaceholderText = "İsim Giriniz"
+Player.Text = ""
+Player.TextColor3 = Color3.fromRGB(255, 255, 255)
+Player.TextSize = 15.000
+Player.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+PlayerHeadshot.Name = "PlayerHeadshot"
+PlayerHeadshot.Parent = Main
+PlayerHeadshot.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PlayerHeadshot.BackgroundTransparency = 1.000
+PlayerHeadshot.BorderColor3 = Color3.fromRGB(0, 0, 0)
+PlayerHeadshot.BorderSizePixel = 0
+PlayerHeadshot.Position = UDim2.new(0.799544334, 0, 0.178234264, 0)
+PlayerHeadshot.Size = UDim2.new(0, 65, 0, 57)
+PlayerHeadshot.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+ID.Name = "ID"
+ID.Parent = Main
+ID.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ID.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ID.BorderSizePixel = 0
+ID.ClipsDescendants = true
+ID.Position = UDim2.new(0.0177215189, 0, 0.25, 0)
+ID.Size = UDim2.new(0, 87, 0, 28)
+ID.Font = Enum.Font.SourceSansBold
+ID.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+ID.PlaceholderText = "ID"
+ID.Text = ""
+ID.TextColor3 = Color3.fromRGB(255, 255, 255)
+ID.TextSize = 15.000
+ID.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+
+-- Scripts:
+
+local function LTXI_fake_script() -- cxosadmingui.HANDLER 
+	local script = Instance.new('LocalScript', cxosadmingui)
+
+	local sgui = script.Parent
+	local Main = sgui.Main
+	local Buttons = Main.Buttons
+	local Player = Main.Player
+	local Head = Main.PlayerHeadshot
+	local Kick = Buttons.Kick
+	local Kill = Buttons.Kill
+	local Bring = Buttons.Bring
+	local Void = Buttons.Void
+	local Ban = Buttons.Ban
+	local Music = Buttons.Music
+	local ID = Main.ID
+	local lp = game.Players.LocalPlayer
+	local KickBlock = CFrame.new(4371.23, -86.733, -3564.726)
+	local SelectedPlayer = nil
+	local Studio = game:GetService("RunService"):IsStudio()
+	local Banned = {}
+	
+	pcall(function()
+		workspace.FallenPartsDestroyHeight = 0/0
+	end)
+	
+	Main.Draggable = true
+	Head.Image = "rbxthumb://type=AvatarHeadShot&id="..lp.UserId.."&w=420&h=420"
+	
+	local function p(a, me)
+		local ps = game.Players:GetPlayers()
+		local found = {}
+	
+		if a:lower() == "me" then
+			found = {me}
+		elseif a:lower() == "others" then
+			for i, player in ipairs(ps) do
+				if player ~= me then
+					table.insert(found, player)
+				end
+			end
+		elseif a:lower() == "all" then
+			found = ps
+		elseif a:lower() == "random" then
+			if #ps > 0 then
+				found = {ps[math.random(1, #ps)]}
+			end
+		else
+			for i, player in ipairs(ps) do
+				if player.Name:lower():sub(1, #a) == a:lower() or player.DisplayName:lower():sub(1, #a) == a:lower() then
+					table.insert(found, player)
+				end
+			end
+		end
+	
+		return found
+	end
+	
+	Player.FocusLost:Connect(function()
+		
+		if Player.Text:lower() == "all" then
+			SelectedPlayer = "all"
+			return
+		end
+		
+		local plr = p(Player.Text, lp)
+		if #plr > 0 then
+			SelectedPlayer = plr[1]
+			Player.Text = plr[1].Name
+			print(plr[1].UserId)
+			Head.Image = "rbxthumb://type=AvatarHeadShot&id="..plr[1].UserId.."&w=420&h=420"
+		else
+			game:GetService("StarterGui"):SetCore("SendNotification", {
+				Title = "PR - Hata",
+				Text = "Oyuncu bulunamadı.",
+				Icon = "rbxthumb://type=AvatarHeadShot&id="..lp.UserId.."&w=420&h=420",
+				Duration = 5,
+			})
+			return
+		end
+	end)
+	
+	Kick.Activated:Connect(function()
+		
+		local plr = SelectedPlayer
+		
+		if plr ~= "all" then
+			if plr == lp then
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "PR - Hata",
+					Text = "Kendini kickleyemezsin.",
+					Icon = "rbxthumb://type=AvatarHeadShot&id="..lp.UserId.."&w=420&h=420",
+					Duration = 5,
+				})
+				return
+			end
+			
+			if not lp.Character then
+				workspace:WaitForChild("RemoteEvents").OS:FireServer()
+				repeat task.wait() until lp.Character
+			end
+			
+			local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+			
+			if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+				workspace:WaitForChild("RemoteEvents").OS:FireServer()
+				repeat task.wait() until lp.Character
+				lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+			end
+			
+			local looping = true
+			
+			local LoopVel = coroutine.create(function()
+				repeat
+					task.wait()
+					if workspace:FindFirstChild("alanpro") then
+						workspace.alanpro:Destroy()
+					else
+						workspace.Gravity = 0
+						lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+						lp.Character:WaitForChild("HumanoidRootPart").CFrame = KickBlock * CFrame.new(0, -12, 0) * CFrame.Angles(math.rad(90), 0, 0)
+						for i,v in game.Players:GetPlayers() do
+							if v ~= lp then
+								if plr.Character then
+									if plr.Character:FindFirstChild("Humanoid") then
+										game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character:FindFirstChild("Humanoid"))
+									else
+										game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+									end
+								else
+									game:GetService("StarterGui"):SetCore("SendNotification", {
+										Title = "PR - Hata",
+										Text = "Bu oyuncu bir karaktere sahip değil.",
+										Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+										Duration = 5,
+									})
+									break
+								end
+							end
+						end
+					end
+				until not looping
+			end)
+	
+			task.spawn(function()
+				--lp.Character.Humanoid.PlatformStand = true
+				--lp.Character.Humanoid:ChangeState(16)
+				coroutine.resume(LoopVel)
+				repeat
+					task.wait()
+				until not game.Players:FindFirstChild(plr.Name)
+				looping = false
+				LoopVel = nil
+				task.wait()
+				--lp.Character.Humanoid.PlatformStand = false
+				lp.Character.Humanoid:ChangeState(7)
+				workspace.Gravity = 196.2
+				lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(-5.308077533072719e-08, 0.0004160810203757137, -4.90511808948213e-07)
+				lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+			end)
+		else
+			for i, plr in game.Players:GetPlayers() do
+				if plr == lp then
+					continue -- skips the loop (doesnt kick yourself)
+				end
+	
+				if not lp.Character then
+					workspace:WaitForChild("RemoteEvents").OS:FireServer()
+					repeat task.wait() until lp.Character
+				end
+	
+				local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+	
+				if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+					workspace:WaitForChild("RemoteEvents").OS:FireServer()
+					repeat task.wait() until lp.Character
+					lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+				end
+				
+				local looping = true
+	
+				local LoopVel = coroutine.create(function()
+					repeat
+						task.wait()
+						if workspace:FindFirstChild("alanpro") then
+							workspace.alanpro:Destroy()
+						else
+							workspace.Gravity = 0
+							lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+							lp.Character:WaitForChild("HumanoidRootPart").CFrame = KickBlock * CFrame.new(0, -12, 0) * CFrame.Angles(math.rad(90), 0, 0)
+							for i,v in game.Players:GetPlayers() do
+								if v ~= lp then
+									if plr.Character then
+										if plr.Character:FindFirstChild("Humanoid") then
+											game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character:FindFirstChild("Humanoid"))
+										else
+											game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+										end
+									else
+										game:GetService("StarterGui"):SetCore("SendNotification", {
+											Title = "PR - Hata",
+											Text = "Bu oyuncu bir karaktere sahip değil.",
+											Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+											Duration = 5,
+										})
+										break
+									end
+								end
+							end
+						end
+					until not looping
+				end)
+	
+				task.spawn(function()
+					--lp.Character.Humanoid.PlatformStand = true
+					--lp.Character.Humanoid:ChangeState(16)
+					coroutine.resume(LoopVel)
+					repeat
+						task.wait()
+					until not game.Players:FindFirstChild(plr.Name)
+					looping = false
+					LoopVel = nil
+					task.wait()
+					--lp.Character.Humanoid.PlatformStand = false
+					lp.Character.Humanoid:ChangeState(7)
+					workspace.Gravity = 196.2
+					lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(-5.308077533072719e-08, 0.0004160810203757137, -4.90511808948213e-07)
+					lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+				end)
+			end
+		end
+	end)
+	
+	Kill.Activated:Connect(function()
+		local plr = SelectedPlayer
+		
+		if plr == lp then
+			if lp.Character then
+				lp.Character:BreakJoints()
+			end
+			return
+		end
+	end)
+	
+	Bring.Activated:Connect(function()
+		local plr = SelectedPlayer
+		
+		if not lp.Character then
+			workspace:WaitForChild("RemoteEvents").OS:FireServer()
+			repeat task.wait(0.1) until lp.Character
+		end
+	
+		local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+	
+		if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+			workspace:WaitForChild("RemoteEvents").HKK:FireServer()
+			repeat task.wait(0.1) until lp.Character
+			lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+			task.wait(1)
+		end
+		
+		if plr ~= "all" then
+			if plr == lp then
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "PR - Hata",
+					Text = "Kendini bringleyemezsin.",
+					Icon = "rbxthumb://type=AvatarHeadShot&id="..lp.UserId.."&w=420&h=420",
+					Duration = 5,
+				})
+				return
+			end
+			
+			if plr.Character then
+				if plr.Character:FindFirstChild("Humanoid") then
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.Humanoid)
+					task.wait()
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.Humanoid)
+				else
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+					task.wait()
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.PrimaryPart)
+				end
+			else
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "PR - Hata",
+					Text = "Bu oyuncu bir karaktere sahip değil.",
+					Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+					Duration = 5,
+				})
+				return
+			end
+		else
+			for i, plr in game.Players:GetPlayers() do
+				
+				if plr == lp then
+					continue
+				end
+	
+				if plr.Character then
+					if plr.Character:FindFirstChild("Humanoid") then
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.Humanoid)
+						task.wait()
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.Humanoid)
+					else
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+						task.wait()
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.PrimaryPart)
+					end
+				end
+			end
+		end
+	end)
+	
+	Void.Activated:Connect(function()
+		local plr = SelectedPlayer
+	
+		if not lp.Character then
+			workspace:WaitForChild("RemoteEvents").OS:FireServer()
+			repeat task.wait() until lp.Character
+		end
+	
+		local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+	
+		if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+			workspace:WaitForChild("RemoteEvents").OS:FireServer()
+			repeat task.wait() until lp.Character
+			lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+		end
+	
+		local looping = true
+	
+		if plr ~= "all" then
+	
+			if plr == lp then
+				lp.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(0, -1000, 0)
+				return
+			end
+			
+			local LoopVel = coroutine.create(function()
+				repeat 
+					task.wait()
+	
+					if not plr.Character or not plr.Character:FindFirstChild("HumanoidRootPart") then
+						looping = false
+						workspace.Gravity = 196.2
+						lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+						lp.Character.Humanoid:ChangeState(7)
+						task.wait()
+						lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+						break
+					end
+	
+					workspace.Gravity = 0
+					lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+					if not Studio then
+						lp.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(0, -1000, 0)
+					else
+						lp.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(0, -499, 0) -- right above fallenpartsdestroyheight (Y 500)
+					end
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.Humanoid)
+				until not looping
+			end)
+	
+			coroutine.resume(LoopVel)
+	
+			if plr.Character then
+				if plr.Character:FindFirstChild("Humanoid") then
+					task.wait()
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.Humanoid)
+				else -- prob never gonna happen
+					task.wait()
+					game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.PrimaryPart)
+				end
+			else
+				game:GetService("StarterGui"):SetCore("SendNotification", {
+					Title = "PR - Hata",
+					Text = "Bu oyuncu bir karaktere sahip değil.",
+					Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+					Duration = 5,
+				})
+				return
+			end
+		else
+			for i, plr in game.Players:GetPlayers() do
+	
+				if plr == lp then
+					continue
+				end
+				
+				local LoopVel = coroutine.create(function()
+					repeat 
+						task.wait()
+	
+						if not plr.Character or not plr.Character:FindFirstChild("HumanoidRootPart") then
+							looping = false
+							workspace.Gravity = 196.2
+							lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+							lp.Character.Humanoid:ChangeState(7)
+							task.wait()
+							lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+							break
+						end
+	
+						workspace.Gravity = 0
+						lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+						if not Studio then
+							lp.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(0, -1000, 0)
+						else
+							lp.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(0, -499, 0) -- right above fallenpartsdestroyheight (Y 500)
+						end
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.Humanoid)
+					until not looping
+				end)
+	
+				coroutine.resume(LoopVel)
+	
+				if plr.Character then
+					if plr.Character:FindFirstChild("Humanoid") then
+						task.wait()
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.Humanoid)
+					else -- prob never gonna happen
+						task.wait()
+						game:GetService("ReplicatedStorage").DetainEvent:FireServer("undetain", plr.Character.PrimaryPart)
+					end
+				end
+			end
+			task.wait(0.25)
+			looping = false
+			workspace.Gravity = 196.2
+			lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(-5.308077533072719e-08, 0.0004160810203757137, -4.90511808948213e-07)
+			task.wait()
+			lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+			return
+		end
+	end)
+	
+	Ban.Activated:Connect(function()
+		local plr = SelectedPlayer
+		
+		if plr ~= "all" then
+			if not table.find(Banned, plr.Name) then
+				table.insert(Banned, plr.Name)
+				if not lp.Character then
+					workspace:WaitForChild("RemoteEvents").OS:FireServer()
+					repeat task.wait() until lp.Character
+				end
+	
+				local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+	
+				if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+					workspace:WaitForChild("RemoteEvents").OS:FireServer()
+					repeat task.wait() until lp.Character
+					lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+				end
+	
+				local looping = true
+	
+				local LoopVel = coroutine.create(function()
+					repeat
+						task.wait()
+						if workspace:FindFirstChild("alanpro") then
+							workspace.alanpro:Destroy()
+						else
+							workspace.Gravity = 0
+							lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+							lp.Character:WaitForChild("HumanoidRootPart").CFrame = KickBlock * CFrame.new(0, -12, 0) * CFrame.Angles(math.rad(90), 0, 0)
+							for i,v in game.Players:GetPlayers() do
+								if v ~= lp then
+									if plr.Character then
+										if plr.Character:FindFirstChild("Humanoid") then
+											game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character:FindFirstChild("Humanoid"))
+										else
+											game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+										end
+									else
+										game:GetService("StarterGui"):SetCore("SendNotification", {
+											Title = "PR - Hata",
+											Text = "Bu oyuncu bir karaktere sahip değil.",
+											Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+											Duration = 5,
+										})
+										break
+									end
+								end
+							end
+						end
+					until not looping
+				end)
+	
+				task.spawn(function()
+					--lp.Character.Humanoid.PlatformStand = true
+					--lp.Character.Humanoid:ChangeState(16)
+					coroutine.resume(LoopVel)
+					repeat
+						task.wait()
+					until not game.Players:FindFirstChild(plr.Name)
+					looping = false
+					LoopVel = nil
+					task.wait()
+					--lp.Character.Humanoid.PlatformStand = false
+					lp.Character.Humanoid:ChangeState(7)
+					workspace.Gravity = 196.2
+					lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(-5.308077533072719e-08, 0.0004160810203757137, -4.90511808948213e-07)
+					lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+				end)
+			end
+		end
+	end)
+	
+	Music.Activated:Connect(function()
+		local remote = game:GetService("ReplicatedStorage"):FindFirstChild("AC6_FE_Sounds",true) or game:GetService("Workspace"):FindFirstChild("AC6_FE_Sounds",true)
+		if ID.Text == "" or ID.Text == "ID" or ID.Text == " " then
+			if remote then
+				pcall(function()
+					remote:FireServer("newSound", "Hacked By PilloryRage", game:GetService("TestService"), "http://www.roblox.com/asset/?id=8389041427", 1.0, 10, true)
+					task.wait()
+					remote:FireServer("playSound", "Hacked By PilloryRage")
+					remote:FireServer("updateSound", "Hacked By PilloryRage", {Pitch = 1.0, Volume = 10, Playing = true, Looped = true})
+				end)
+			end
+		else
+			if remote then
+				pcall(function()
+					remote:FireServer("newSound", "Hacked By PilloryRage", game:GetService("TestService"), "rbxassetid://".. ID.Text, 1.0, 10, true)
+					task.wait()
+					remote:FireServer("playSound", "Hacked By PilloryRage")
+					remote:FireServer("updateSound", "Hacked By PilloryRage", {Pitch = 1.0, Volume = 10, Playing = true, Looped = true})
+				end)
+			end
+		end
+	end)
+	
+	game.Players.PlayerAdded:Connect(function(plr)
+		if table.find(Banned, plr.Name) then
+			repeat task.wait() until plr and plr.Character
+			if not lp.Character then
+				workspace:WaitForChild("RemoteEvents").OS:FireServer()
+				repeat task.wait() until lp.Character
+			end
+	
+			local lpc = lp.Character:FindFirstChild("HumanoidRootPart").CFrame
+	
+			if not game:GetService("ReplicatedStorage"):FindFirstChild("DetainEvent") then
+				workspace:WaitForChild("RemoteEvents").OS:FireServer()
+				repeat task.wait() until lp.Character
+				lp.Character:WaitForChild("HumanoidRootPart").CFrame = lpc
+			end
+	
+			local looping = true
+	
+			local LoopVel = coroutine.create(function()
+				repeat
+					task.wait()
+					if workspace:FindFirstChild("alanpro") then
+						workspace.alanpro:Destroy()
+					else
+						workspace.Gravity = 0
+						lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(0, 0, 0)
+						lp.Character:WaitForChild("HumanoidRootPart").CFrame = KickBlock * CFrame.new(0, -12, 0) * CFrame.Angles(math.rad(90), 0, 0)
+						for i,v in game.Players:GetPlayers() do
+							if v ~= lp then
+								if plr.Character then
+									if plr.Character:FindFirstChild("Humanoid") then
+										game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character:FindFirstChild("Humanoid"))
+									else
+										game:GetService("ReplicatedStorage").DetainEvent:FireServer("detain", plr.Character.PrimaryPart)
+									end
+								else
+									game:GetService("StarterGui"):SetCore("SendNotification", {
+										Title = "PR - Hata",
+										Text = "Bu oyuncu bir karaktere sahip değil.",
+										Icon = "rbxthumb://type=AvatarHeadShot&id="..plr.UserId.."&w=420&h=420",
+										Duration = 5,
+									})
+									break
+								end
+							end
+						end
+					end
+				until not looping
+			end)
+	
+			task.spawn(function()
+				--lp.Character.Humanoid.PlatformStand = true
+				--lp.Character.Humanoid:ChangeState(16)
+				coroutine.resume(LoopVel)
+				repeat
+					task.wait()
+				until not game.Players:FindFirstChild(plr.Name)
+				looping = false
+				LoopVel = nil
+				task.wait()
+				--lp.Character.Humanoid.PlatformStand = false
+				lp.Character.Humanoid:ChangeState(7)
+				workspace.Gravity = 196.2
+				lp.Character.PrimaryPart.AssemblyLinearVelocity = Vector3.new(-5.308077533072719e-08, 0.0004160810203757137, -4.90511808948213e-07)
+				lp.Character:FindFirstChild("HumanoidRootPart").CFrame = lpc
+			end)
+		end
+	end)
+end
+coroutine.wrap(LTXI_fake_script)()
